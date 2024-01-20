@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenSeadragon Viewer</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="openseadragon/openseadragon.min.js"></script>
+    <script src="openseadragon/openseadragon-scalebar.js" charset="utf-8"></script>
+    <style>
+        #openseadragon1 {
+            width: 95vw;
+            height: 95vh;
+            margin: auto auto;
+        }
+        #openseadragon1_controls {
+            position: absolute;
+            right: 60px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: 9999;
+            display: block;
+        }
+        .openseadragon-canvas:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="openseadragon1">
+        <div id="openseadragon1_controls" >
+            <div>
+            <input type="checkbox" id="ribosomeCheckbox" checked onchange="toggleRibosome()"  >
+                <label for="ribosomeCheckbox">Show Ribosomes</label>
+             </input>
+            </div>
+            <div>
+             <input type="checkbox" id="ribosomeCheckboxDirection" onchange="toggleRibosome()"  >
+             <label for="ribosomeCheckboxDirection">View from bottom</label>
+          </input>
+          </div>
+            
+    </div>
+    <script type="text/javascript">
+        var viewer = OpenSeadragon({
+            id: "openseadragon1",
+            subPixelRoundingForTransparency: OpenSeadragon.SUBPIXEL_ROUNDING_OCCURRENCES.ALWAYS,
+            prefixUrl: "openseadragon/images/",
+            tileSources: [
+                {
+                    tileSource: "/dzi/micrograph.dzi",
+                    x: 0,
+                    y: 0,
+                },
+                {
+                    tileSource: "/dzi/ribosomes.dzi",
+                    x: 0,
+                    y: 0,
+                },
+                {
+                    tileSource: "/dzi/ribosomes_dc.dzi",
+                    x: 0,
+                    y: 0,
+                    opacity: 0
+                },
+                
+            ]
+        });
+        viewer.scalebar({
+            minWidth: "75px",
+            pixelsPerMeter: 666666666.667,
+            color:"rgb(150, 150, 150)",
+            fontColor: "rgb(50, 50, 50)",
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            });
+        document.getElementById('ribosomeCheckbox').checked = true;
+        function toggleRibosome() {
+            riboCheckbox = document.getElementById('ribosomeCheckbox');
+            riboCheckboxDirection = document.getElementById('ribosomeCheckboxDirection');
+            if (riboCheckbox.checked) {
+                if (riboCheckboxDirection.checked) {
+                    viewer.world.getItemAt(2).setOpacity(1);
+                    viewer.world.getItemAt(1).setOpacity(0);
+                } else {
+                    viewer.world.getItemAt(1).setOpacity(1);
+                    viewer.world.getItemAt(2).setOpacity(0);
+                }
+                viewer.world.getItemAt(1).setOpacity(1);
+            } else {
+                viewer.world.getItemAt(1).setOpacity(0);
+                viewer.world.getItemAt(2).setOpacity(0);
+            }
+        
+        }
+    </script>
+    
+</body>
+</html>
