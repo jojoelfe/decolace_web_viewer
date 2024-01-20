@@ -42,17 +42,17 @@ onMounted(() => {
     prefixUrl: 'https://openseadragon.github.io/openseadragon/images/',
     tileSources: [
       {
-        tileSource: 'http://static.elferich.me/dzi/EUC_Lamella1/micrograph.dzi',
+        tileSource: 'https://static.elferich.me/dzi/EUC_Lamella1/micrograph.dzi',
         x: 0,
         y: 0
       },
       {
-        tileSource: 'http://static.elferich.me/dzi/EUC_Lamella1/ribosomes.dzi',
+        tileSource: 'https://static.elferich.me/dzi/EUC_Lamella1/ribosomes.dzi',
         x: 0,
         y: 0
       },
       {
-        tileSource: 'http://static.elferich.me/dzi/EUC_Lamella1/ribosomes_dc.dzi',
+        tileSource: 'https://static.elferich.me/dzi/EUC_Lamella1/ribosomes_dc.dzi',
         x: 0,
         y: 0,
         opacity: 0
