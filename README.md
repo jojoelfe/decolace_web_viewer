@@ -1,6 +1,8 @@
 # decolace_web_viewer
 
-A web-based  viewer for [DeCo-LACE](https://github.com/jojoelfe/decolace) data
+A web-based  viewer for [DeCo-LACE](https://github.com/jojoelfe/decolace) data.
+
+[Click here](https://jojoelfe.github.io/decolace_web_viewer) for an example dataset
 
 ## Recommended IDE Setup
 
