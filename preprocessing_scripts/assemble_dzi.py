@@ -1,3 +1,6 @@
+# /// pyproject
+# run.requirements = ["pyvips"]
+# ///
 import pyvips
 from pathlib import Path
 
