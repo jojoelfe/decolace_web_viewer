@@ -12,6 +12,7 @@ A web-based  viewer for [DeCo-LACE](https://github.com/jojoelfe/decolace) data.
     - There is a custom renderscript that uses renderregions to break the rendered image up into 4 quadrants. Otherwise the compositor crashes even on machines with a lot of RAM (512GB).
     - The orthographic scale of the camera is driven by a driver based on the render resolution. That ensures a constant pixel-size.
     - The rendered quadrants are placed into a folder called "output"
+    - An example .blend file with the nescessary data can be downloaded [here](https://hidrive.ionos.com/lnk/AeGglN01)
 
 - The script [assemble_dzi.py](preprocessing_scripts/assemble_dzi.py) is used to assemble the quadrants and then write out image pyramids in dzi format.
 - The script [optimize_png.sh](preprocessing_scripts/optimize_png.sh) is used to optimize the filesize of the dzi image pyramid (from ~1GB to 250MB)
