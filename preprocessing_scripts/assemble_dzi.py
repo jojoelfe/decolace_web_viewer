@@ -1,10 +1,10 @@
-# /// pyproject
-# run.requirements = ["pyvips"]
+# /// script
+# dependencies = ["pyvips"]
 # ///
 import pyvips
 from pathlib import Path
 
-blender_output_path = Path("../new_blender_approach/output/")
+blender_output_path = Path("../blender_files/output/")
 dzi_path = Path("../dzi/")
 
 lamellae = blender_output_path.glob("*")

@@ -8,7 +8,7 @@ A web-based  viewer for [DeCo-LACE](https://github.com/jojoelfe/decolace) data.
 
 - Images are rendered in blender at high resolution (~25kx25k). The montaged micrograph is imported as a tiff texture and molecules are imported using [Molecular Nodes](https://github.com/BradyAJohnston/MolecularNodes).
 
-    - Every dataset is one Scene in the blenderfile. The micrograph and molecular overlay layers are ViewLayers within the scene. The compositor is used to save them all into seperate files.
+    - Every dataset is one scene in the blenderfile. The micrograph and molecular overlay layers are ViewLayers within the scene. The compositor is used to save them all into seperate files.
     - There is a custom renderscript that uses renderregions to break the rendered image up into 4 quadrants. Otherwise the compositor crashes even on machines with a lot of RAM (512GB).
     - The orthographic scale of the camera is driven by a driver based on the render resolution. That ensures a constant pixel-size.
     - The rendered quadrants are placed into a folder called "output"
