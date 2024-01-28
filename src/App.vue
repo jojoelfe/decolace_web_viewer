@@ -117,10 +117,13 @@ onMounted(() => {
         </div>
       </div>
       <h3>Datasets:</h3>
+      <div id="dataset_list">
       <a v-for="(dataset, i) in datasets" :key="dataset.name" class="dataset" href="#" @click.prevent="active_dataset = i">
         <p>{{ dataset.name }}</p>
         <img :src="dataset.thumbnail" />
       </a>
+      
+    </div>
     </div>
   </div>
 </template>
@@ -158,6 +161,11 @@ onMounted(() => {
   width: 5vw;
   margin: auto auto;
   display: block;
+}
+
+#openseadragon1_controls #dataset_list {
+  overflow: auto;
+  height: 75%;
 }
 
 #openseadragon1_controls .dataset {
