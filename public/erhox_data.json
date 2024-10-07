@@ -1,19 +1,19 @@
 {
   "datasets": [
     {
-      "name": "EUC_Lamella1",
-      "thumbnail": "https://static.elferich.me/dzi/EUC_Lamella1/micrograph_files/8/0_0.png",
+      "name": "FFF_Lamella4",
+      "thumbnail": "https://static.elferich.me/dzi/FFF_Lamella4/micrograph_files/8/0_0.png",
       "micrograph": {
-        "default": "https://static.elferich.me/dzi/EUC_Lamella1/micrograph.dzi"
+        "default": "https://static.elferich.me/dzi/FFF_Lamella4/micrograph.dzi"
       },
       "match_overlays": [
         {
           "name": "ribosome",
-          "default": "https://static.elferich.me/dzi/EUC_Lamella1/ribosomes.dzi",
+          "default": "https://static.elferich.me/dzi/FFF_Lamella4/ribosomes.dzi",
           "alternatives": [
             {
               "name": "Depth Cue",
-              "url": "https://static.elferich.me/dzi/EUC_Lamella1/ribosomes_dc.dzi"
+              "url": "https://static.elferich.me/dzi/FFF_Lamella4/ribosomes_dc.dzi"
             }
           ]
         }
@@ -132,26 +132,8 @@
           ]
         }
       ]
-    },
-    {
-      "name": "FFF_Lamella4",
-      "thumbnail": "https://static.elferich.me/dzi/FFF_Lamella4/micrograph_files/8/0_0.png",
-      "micrograph": {
-        "default": "https://static.elferich.me/dzi/FFF_Lamella4/micrograph.dzi"
-      },
-      "match_overlays": [
-        {
-          "name": "ribosome",
-          "default": "https://static.elferich.me/dzi/FFF_Lamella4/ribosomes.dzi",
-          "alternatives": [
-            {
-              "name": "Depth Cue",
-              "url": "https://static.elferich.me/dzi/FFF_Lamella4/ribosomes_dc.dzi"
-            }
-          ]
-        }
-      ]
     }
+   
   
     
   ]
