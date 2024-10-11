@@ -25,13 +25,10 @@ watch(match_overlays, () => {
     //  }
     //}
     if (match_overlay.show) {
-      if (match_overlay.alternatives[0].show) {
-        viewer.world.getItemAt(i+1).setOpacity(0)
-        viewer.world.getItemAt(i+2).setOpacity(1)
-      } else {
-        viewer.world.getItemAt(i+1).setOpacity(1)
-        viewer.world.getItemAt(i+2).setOpacity(0)
-      }
+      
+      viewer.world.getItemAt(i+1).setOpacity(1)
+      viewer.world.getItemAt(i+2).setOpacity(0)
+      
     } else {
       viewer.world.getItemAt(i+1).setOpacity(0)
       viewer.world.getItemAt(i+2).setOpacity(0)
@@ -46,34 +43,31 @@ watch(active_dataset, () => {
   var dataset = datasets.value[active_dataset.value]
   match_overlays.value = []
   viewer.open({
-    tileSource: dataset["micrograph"]["default"],
+    tileSource: {
+      'type': 'image',
+      'url': dataset["micrograph"]["default"]
+    },
     x: 0,
     y: 0,
   })
   for (var i = 0; i < dataset["match_overlays"].length; i++) {
         var match_overlay = dataset["match_overlays"][i]
         viewer.addTiledImage({
-          tileSource: match_overlay["default"],
+          tileSource: {
+            'url': match_overlay["default"],
+            'type': 'image'
+          },
           x: 0,
           y: 0,
           opacity: 1,
           index: 1
         })
-        viewer.addTiledImage({
-          tileSource: match_overlay["alternatives"][0]["url"],
-          x: 0,
-          y: 0,
-          opacity: 0,
-          index: 2
-        })
+        
         match_overlay.show = true
-        for (var j = 0; j < match_overlay["alternatives"].length; j++) {
-          var alternative = match_overlay["alternatives"][j]
-          alternative.show = false
-        }
+        
         match_overlays.value.push(match_overlay)
       }
-  })
+})
 
 onMounted(() => {
   viewer = OpenSeadragon({
@@ -94,7 +88,7 @@ onMounted(() => {
     backgroundColor: 'rgba(255, 255, 255, 0.5)'
   })
   // Fetch '/erhox_data.json' and add it to the viewer
-  fetch('erhox_data.json')
+  fetch('hippo.json')
     .then(response => response.json())
     .then(data => {
       datasets.value = data["datasets"]
@@ -107,14 +101,11 @@ onMounted(() => {
 <template>
   <div id="openseadragon1">
     <div id="openseadragon1_controls">
-      <h3>Control Overlays:</h3>
+      <h3>Overlays:</h3>
       <div v-for="match_overlay in match_overlays" :key="match_overlay.name">
         <input type="checkbox" id="showribosomes" v-model="match_overlay.show" />
         <label for="checkbox"> Show {{ match_overlay.name }}</label>
-        <div v-for="alternative in match_overlay.alternatives" :key="alternative.name" class="alternative-overlay">
-          <input type="checkbox" id="showribosomes" v-model="alternative.show" />
-          <label for="checkbox"> {{ alternative.name }}</label>
-        </div>
+        
       </div>
       <h3>Datasets:</h3>
       <div id="dataset_list">
