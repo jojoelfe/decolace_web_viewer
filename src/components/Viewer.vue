@@ -8,9 +8,6 @@ ossb(OpenSeadragon)
 var viewer
 const props = defineProps(['dataset', 'hidden_overlays'])
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 async function update_overlays() {
     if (viewer == undefined) {
@@ -19,8 +16,7 @@ async function update_overlays() {
   if (props.dataset == undefined) {
     return
   }
-  console.log("updating overlays")
-  await sleep(1000)
+
   for (var i = 0; i < props.dataset.match_overlays.length; i++) {
     var match_overlay = props.dataset.match_overlays[i]
     if (viewer.world.getItemAt(i+1) == undefined) {
