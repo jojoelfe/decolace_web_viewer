@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/candida/',
+  base: '/decolace_web_viewer/',
   plugins: [
     vue(),
   ],
