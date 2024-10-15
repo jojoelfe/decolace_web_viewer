@@ -20,14 +20,11 @@ async function update_overlays() {
   for (var i = 0; i < props.dataset.match_overlays.length; i++) {
     var match_overlay = props.dataset.match_overlays[i]
     if (viewer.world.getItemAt(i+1) == undefined) {
-      console.log("skipping")
       continue
     }
     if (match_overlay.name in props.hidden_overlays) {
-      console.log("setting opacity to 0")
       viewer.world.getItemAt(i+1).setOpacity(0)
     } else {
-      console.log("setting opacity to 1")
       viewer.world.getItemAt(i+1).setOpacity(1)
     }
   }
@@ -36,10 +33,10 @@ async function update_overlays() {
 watch(() => props.hidden_overlays, update_overlays, {deep: true})
 
 function update_dataset() {
-  console.log("updating dataset")
   if (viewer == undefined) {
     return
   }
+  
   if (props.dataset == undefined) {
     return
   }
@@ -83,7 +80,7 @@ onMounted(() => {
   })
   viewer.scalebar({
     minWidth: '75px',
-    pixelsPerMeter: 666666666.667,
+    pixelsPerMeter: 1000000000,
     color: 'rgb(150, 150, 150)',
     fontColor: 'rgb(50, 50, 50)',
     backgroundColor: 'rgba(255, 255, 255, 0.5)'

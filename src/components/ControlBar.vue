@@ -29,7 +29,7 @@ watch(() => props.datasets, (newVal, oldVal) => {
       </div>
       <h3>Datasets:</h3>
       <div id="dataset_list">
-      <RouterLink v-for="[area, dataset] in Object.entries(props.datasets)" :key="area" class="dataset" :to="{ name: 'area', params: {'area': area} }">
+      <RouterLink v-for="[area, dataset] in Object.entries(props.datasets)" :key="area" class="dataset" :to="{ name: 'area', params: {'area': area}, query:{...route.query} }">
         <p :class="{'active': area==active_dataset}">{{ dataset.name }}</p>
         <img :src="dataset.thumbnail" />
       </RouterLink>

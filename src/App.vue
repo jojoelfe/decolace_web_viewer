@@ -30,7 +30,6 @@ watch(() => route.params.area, (newValue, OldValue) => {
 watch(() => route.params.dataset, (newValue, OldValue) => {
   
   if (newValue != undefined) {
-    console.log("Loading data")
     fetch(data_url + newValue + '/' + newValue + '.json')
       .then(response => response.json())
       .then(data => {
