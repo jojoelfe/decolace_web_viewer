@@ -23,7 +23,7 @@ watch(() => props.datasets, (newVal, oldVal) => {
  <div id="openseadragon1_controls">
       <h3>Overlays:</h3>
       <div v-for="overlay in potential_overlays" :key="overlay">
-        <input type="checkbox" id="showribosomes" :checked="!(overlay in hidden_overlays)" @change="query = router.query;nq = {};nq[overlay] = $event.target.checked ? 'show' : 'hide';router.push({query: {...$event.query,...nq}});"/>
+        <input type="checkbox" id="showribosomes" :checked="!(overlay in hidden_overlays)" @change="query = route.query;nq = {};nq[overlay] = $event.target.checked ? 'show' : 'hide';console.log(nq);console.log(query);router.push({query: {...query,...nq}});"/>
         <label for="checkbox"> Show {{ overlay }}</label>
         
       </div>

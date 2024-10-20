@@ -58,11 +58,10 @@ function update_dataset() {
           x: 0,
           y: 0,
           opacity: 1,
-          index: 1
+          index: i+1
         })
         
       }
-
 }
 
 watch(() => props.dataset,update_dataset)
