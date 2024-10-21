@@ -57,7 +57,7 @@ function update_dataset() {
           },
           x: 0,
           y: 0,
-          opacity: 1,
+          opacity: match_overlay.name in props.hidden_overlays ? 0 : 1,
           index: i+1
         })
         
