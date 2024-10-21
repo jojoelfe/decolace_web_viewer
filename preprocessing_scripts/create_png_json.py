@@ -25,6 +25,14 @@ for lamella in Path(sys.argv[1]).glob("*mrc.png"):
                                 {
                                     "name": "60S",
                                     "default": f"http://www.s1023143047.onlinehome.us/candida/{str(lamella.with_suffix('').name).replace('montage_filtered.mrc','3_tm_package_filtered_assembly')}.png"
+                                },
+                                {
+                                    "name": "FAS",
+                                    "default": f"http://www.s1023143047.onlinehome.us/candida/{str(lamella.with_suffix('').name).replace('montage_filtered.mrc','4_tm_package_filtered_assembly')}.png"
+                                },
+                                {
+                                    "name": "tiles",
+                                    "default": f"http://www.s1023143047.onlinehome.us/candida/{str(lamella.with_suffix('').name).replace('montage_filtered.mrc','tile_overlay')}.png"
                                 }
                              ]})
 data["datasets"].sort(key=lambda x: x["name"])
